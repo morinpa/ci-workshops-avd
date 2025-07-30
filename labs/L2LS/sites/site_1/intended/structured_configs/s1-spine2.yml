@@ -92,9 +92,7 @@ local_users:
 - name: arista
   privilege: 15
   role: network-admin
-  sha512_password: $6$arista$1u7hk85iFzlPboZQbKSF3l/MJdOO9EKxTV5h7AL6uOwhxtbDRfy40NYjHGf5.5Ywrv7iI8DG62B5NdbwzOPW71
-  ssh_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOVQ8czFw6hTN8jJ9/XjQJljrLh9DHRXdlGiQ239A3QgdQKUJanGRd9T/qqJO1LEKGXr7+xxj2zsZ4e58wwibAxiCqgUJB5ysreFqyFz9LkRRM9iCav5BEuPGYGH8Msy6V2UCRaOxLzBk6yMbHpFkJ4HzUQtldwOX4BE80t8UE3Ah6AacbBvJY37EJxgK5PXtDIlGOnNLDe7hOhzVlkELOEjp4QRAnHSUJ+GlQY/754GdrFu+UFpC2usuh6jZaZysLDfUdzF0eC5QMf7x+IGxuCkQNRIKh5lruJyNqmip796dVLgqcvXLzGM9/0q9kJpGUgUUGxt8Ajb8GoOVbdPd/
-    arista@radio-canada-cbc-3-c7918b36-eos
+  sha512_password: $6$arista$cT32xDCtxn3evVzU0OO2tOVxLsCWCOde8HbtYdrqbf2vZF3PTo1drqAyBScU.LRjAymdP5zzEwHi3.B5.3NTf/
 loopback_interfaces:
 - name: Loopback0
   description: ROUTER_ID
@@ -209,6 +207,15 @@ vlan_interfaces:
   tenant: MY_FABRIC
   tags:
   - App
+- name: Vlan25
+  description: Twenty-five
+  shutdown: false
+  ip_address: 10.25.25.3/24
+  ip_virtual_router_addresses:
+  - 10.25.25.1
+  tenant: MY_FABRIC
+  tags:
+  - Wifi
 vlan_internal_order:
   allocation: ascending
   range:
@@ -230,6 +237,9 @@ vlans:
   tenant: MY_FABRIC
 - id: 20
   name: Twenty
+  tenant: MY_FABRIC
+- id: 25
+  name: Twenty-five
   tenant: MY_FABRIC
 vrfs:
 - name: default
